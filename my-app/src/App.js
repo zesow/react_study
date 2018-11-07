@@ -45,6 +45,7 @@ class App extends Component {
       {/* map 기능. 
         map 은 array를 만듦. 다른 array의 요소를 포함하는 값.
         array를 이용해서 컴포넌트들을 생성해준다.
+        index를 추가하면 저절로 고유한 키값이 부여된다.
       */}
         {movies.map((movie, index) => {
           return <Movie title={movie.title} poster={movie.poster} key={index} />
