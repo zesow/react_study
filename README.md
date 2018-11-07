@@ -524,3 +524,8 @@ class App extends Component {
 export default App;
 
 ```
+
+# 12. Loading state
+내가 원하는 데이터가 바로 존재하지 않을 수도 있음.
+데이터 없이 컴포넌트가 로딩을 하고, 데이터를 위해 API를 불러서 API 가 데이터를 주면 나의 State를 업데이트 하는것.
+-> API 콜을 타임앙웃으로.
