@@ -25,28 +25,27 @@ const movies = [
 ]
 class App extends Component {
 
-  componentWillMount(){
-    // 사이클이 시작
-    console.log('will mount')
+  state = {
+    greeting: 'Hello!'
   }
 
+  // component mount 후 5초 기다리고 greeting 업데이트.
+  // 컴포넌트가 mount 할 떄마다 greeting 을 hello again 으로 변경.
+  // state를 바꿀 수 있고ㅡ, 자동으로 render 가 작동.
   componentDidMount(){
-    // 리액트 세계에 컴포넌트가 자리잡음.
-    console.log('did mount')
+    setTimeout(() => {
+      // 직접적으로 변경하면 안됨!
+      // this.state.greeting = 'something'
+      this.setState({
+        greeting: 'Hello again!'
+      })
+    }, 5000)
   }
 
   render() {
-    // 컴포넌트가 리액트 세계에 존재.
-    console.log('did rander')
-    // 이 컴포넌트가 나에게 보여주는 것이 무엇인지를 정의.
     return (
-      // 자바스크립트 안에 html = jsx
       <div className="App">
-      {/* map 기능. 
-        map 은 array를 만듦. 다른 array의 요소를 포함하는 값.
-        array를 이용해서 컴포넌트들을 생성해준다.
-        index를 추가하면 저절로 고유한 키값이 부여된다.
-      */}
+        {this.state.greeting}
         {movies.map((movie, index) => {
           return <Movie title={movie.title} poster={movie.poster} key={index} />
         })}
