@@ -11,32 +11,16 @@ class App extends Component {
   }
 
   componentDidMount(){
-    setTimeout(() => {
-      this.setState({
-        movies : [
-          {
-            title: "열연",
-            poster: "https://marketing.adobe.com/resources/help/ko_KR/sc/user/graphics/graph_trend_line.png"
-          },
-          {
-            title: "냉연",
-            poster: "https://marketing.adobe.com/resources/help/ko_KR/sc/user/graphics/graph_smooth_line.png"
-          },
-          {
-            title: "순환품",
-            poster: "https://marketing.adobe.com/resources/help/ko_KR/sc/user/graphics/graph_stacked_area.png"
-          },
-          {
-            title: "STS",
-            poster: "https://marketing.adobe.com/resources/help/ko_KR/sc/user/graphics/graph_stacked_horizontal.png"
-          },
-          {
-            title: "Transporting",
-            poster: "https://marketing.adobe.com/resources/help/ko_KR/sc/user/graphics/graph_stacked_horizontal.png"
-          }
-        ]
-      })
-    },5000)
+    // fetch가 끝나면 then을 해라. 그런데 에러가 발생하면 err를 실행해라.
+    // json 으로  바꿈.
+    // cors 에러 해결. proxyurl 을 추가해준다. https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
+    // api 받아서 콘솔에 출력 성공.
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const url = 'https://yts.ag/api/v2/list_movies.json?sort_by=rating'
+    fetch(proxyurl + url)
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err))
   }
 
   // 데이터가 없을 때 '로딩' 을 띄우고, 있으면 영화정보가 보이도록 함.
@@ -51,10 +35,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* loading state 가 필요한 부분 */}
-        {/* loading... */}
-        {/* 언더스코어 쓰는 이유 : 리액트의 자체 기능과 차이를 두기 위해. 나의 기능은 언더스코어로 시작하도록 */}
-        {/* 참 일경우 영화정보를, 거짓일경우 로딩을. */}
         {this.state.movies ? this._renderMovies() : 'Loading'}
       </div>
     );
