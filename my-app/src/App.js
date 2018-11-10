@@ -7,8 +7,7 @@ import Movie from './Movie';
 class App extends Component {
 
   state = {
-    greeting: 'Hello!'
-    
+
   }
 
   componentDidMount(){
