@@ -841,7 +841,7 @@ export default App;
 ```
 
 # update movie : component (add genre,...)
-![](https://www.dropbox.com/s/e5l1lvq692wi28i/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-11-10%2023.54.09.jpg?dl=0)
+![image](https://user-images.githubusercontent.com/14235802/48309421-0decc300-e5bd-11e8-8c9a-94326ac94a61.png)
 
 [App.js]
 ```
