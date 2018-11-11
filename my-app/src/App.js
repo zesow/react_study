@@ -36,15 +36,21 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
-  // 데이터가 없을 때 '로딩' 을 띄우고, 있으면 영화정보가 보이도록 함.
-  // 이게 무슨 뜻일까??
-  // map을 이용해서 movie 들을 출력.
+// console.log로 movie 각각 띄운 다음에 필요한 정보만 랜더링 하도록 함.
   _renderMovies = () => {
     const movies = this.state.movies.map(movie => {
-      return <Movie title={movie.title} poster={movie.large_cover_image} key={movie.id} />
+      console.log(movie)
+      return <Movie
+       title={movie.title_english} 
+       poster={movie.medium_cover_image}
+       key={movie.id} 
+       genres={movie.genres}
+       synopsis={movie.synopsis}
+      />
     })
     return movies
   }
+  
   render() {
     return (
       <div className="App">
